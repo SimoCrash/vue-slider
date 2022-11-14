@@ -14,19 +14,20 @@
     <script src="js/script.js" defer></script>
 </head>
 <body>
-    <div class="container-blur">
+	<div class="container-blur">
 		<div class="contents">
 			<div class="slider">
 				<div class="slider-viewer">
 					<div class="controls">
-						<button class="btn-left">&lt;</button>
-						<button class="btn-right">&gt;</button>
+						<button @click="activeIndex--" v-if="{activeIndex === 0 ? activeIndex === 4 :'' }" class="btn-left">&lt;</button>
+						<button @click="activeIndex++" v-if="{activeIndex === 4 ? activeIndex === 0 :'' }" class="btn-right">&gt;</button>
 					</div>
+                    <div v-for="(obj, index) in arrImages" :key="obj.title" v-show="index === activeIndex" class="img-size">
+                        <div class="card img-size" :class="{active: index === activeIndex}"><img :src="'img/' + obj.image" alt="" class="img-size"></div>
+                    </div>
 				</div>
 
-				<div v-for="(key, i) in arrImages" class="thumbs">
-                    <img :src="img/objSlide.image" class="thumb-img" v-if="i === 0 ? 'active' : ''" >
-                </div>
+				<div class="thumbs"></div>
 			</div>
 
 			<div class="btns">
