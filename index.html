@@ -14,6 +14,26 @@
     <script src="js/script.js" defer></script>
 </head>
 <body>
-    
+    <div class="container-blur">
+		<div class="contents">
+			<div class="slider">
+				<div class="slider-viewer">
+					<div class="controls">
+						<button class="btn-left">&lt;</button>
+						<button class="btn-right">&gt;</button>
+					</div>
+				</div>
+
+				<div v-for="(key, i) in arrImages" class="thumbs">
+                    <img :src="img/objSlide.image" class="thumb-img" v-if="i === 0 ? 'active' : ''" >
+                </div>
+			</div>
+
+			<div class="btns">
+				<button class="btn-start-stop" data-functionality="stop">Stop</button>
+				<button class="btn-invert">Invert</button>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
